@@ -1,20 +1,21 @@
-const $ = require('jquery')
-require('./app.css')
+import $ from 'jquery';
+require('./app.scss')
+
 $(document).ready(() => {
-    var newItemHandler = () => {
-        var title = $('#title').val();
+    const newItemHandler = () => {
+        const title = $('#title').val();
         if (title === '') {
             alert('Необходимо ввести значение');
             return;
         }
         $('#title').val('');
-        var item = $("<li></li>").text(title);
-        var priorityButton = $('<button></button>').text('Priority');
+        const item = $("<li></li>").text(title);
+        const priorityButton = $('<button></button>').text('Priority');
         priorityButton.addClass('btn priority');
         priorityButton.click(() => {
             item.toggleClass('priority-task');
         });
-        var removeButton = $('<button></button>').text('Remove');
+        const removeButton = $('<button></button>').text('Remove');
         removeButton.addClass('btn remove');
         removeButton.click(() => {
             item.hide('slow', () => {
